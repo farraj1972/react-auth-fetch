@@ -1,24 +1,56 @@
 import logo from './logo.svg';
 import './App.css';
+import Users from './pages/Users';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/auth/Login';
+import DefaultLayout from './pages/layouts/DefaultLayout';
+import Dashboard from './pages/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
+import Projects from './pages/Projects';
+import Tasks from './pages/Tasks';
+import Logout from './pages/Logout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/" element={
+          <ProtectedRoute>
+            <DefaultLayout>
+              <Dashboard />
+            </DefaultLayout>
+          </ProtectedRoute>
+        } />
+        <Route path="/projects" element={
+          <ProtectedRoute>
+            <DefaultLayout>
+              <Projects />
+            </DefaultLayout>
+          </ProtectedRoute>
+        } />
+        <Route path="/tasks" element={
+          <ProtectedRoute>
+            <DefaultLayout>
+              <Tasks />
+            </DefaultLayout>
+          </ProtectedRoute>
+        } />
+        <Route path="/users" element={
+          <ProtectedRoute>
+            <DefaultLayout>
+              <Users />
+            </DefaultLayout>
+          </ProtectedRoute>
+        } />
+
+        {/* <Route path="/auth/logout" element={
+          <ProtectedRoute>
+            <Logout />
+          </ProtectedRoute>
+        } /> */}
+      </Routes>
+    </BrowserRouter>
   );
 }
 
