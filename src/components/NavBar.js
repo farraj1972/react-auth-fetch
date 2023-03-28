@@ -58,7 +58,7 @@ const NavBar = () => {
                   {/* <a className="nav-link" href="/tasks">Tasks</a> */}
                 </li>  
                 <li className="nav-item">
-                    <button type='button' className="btn btn-link" onClick={logout}>Exit</button>
+                    <button type='button' className="btn btn-light" onClick={logout}>Exit</button>
                     {/* <input type="button" onClick={logout} value="Exit" /> */}
                   {/* <Link className="nav-link" onClick={ logout }>Exit</Link> */}
                   {/* <a className="nav-link" href="/tasks">Tasks</a> */}
