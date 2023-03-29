@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { applicationContext } from '../components/ApplicationContextProvider';
 
 const Users = () => {
+
+    const context = useContext(applicationContext);
 
     const [users, setUsers] = useState([])
 
     useEffect(()=>{
-
         const fetchdata = async () => {
-
+            console.log(context.baseUrl)
             fetch(
-                'http://localhost:5000/api/users', {
+                `${context.baseUrl}/users`,
+                {
                     method:'get',
                     headers:new Headers({
-                        'Authorization': 'Bearer ' + localStorage.getItem('user-token')
+                        'Authorization': 'Bearer ' + 
+                        localStorage.getItem('user-token')
                     })
                 }).then(async (response)=>{
                     const data = await response.json();
-                    console.log(data.users)
                     setUsers(data.users);
         
                 }).catch((error)=>{
-
                     console.log(error)
-//                    localStorage.reItem('user-token')
-//                    if (error.status)
                 })
 
         }
         fetchdata()
-    }, []);
+    },[context.baseUrl]);
 
     return (
         <div>

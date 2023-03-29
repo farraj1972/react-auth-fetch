@@ -57,12 +57,6 @@ const NavBar = () => {
                   <Link className="nav-link" to="/users">Users</Link>
                   {/* <a className="nav-link" href="/tasks">Tasks</a> */}
                 </li>  
-                <li className="nav-item">
-                    <button type='button' className="btn btn-light" onClick={logout}>Exit</button>
-                    {/* <input type="button" onClick={logout} value="Exit" /> */}
-                  {/* <Link className="nav-link" onClick={ logout }>Exit</Link> */}
-                  {/* <a className="nav-link" href="/tasks">Tasks</a> */}
-                </li>                                
               </ul>
               {/* <!-- Left links --> */}
             </div>
@@ -70,13 +64,14 @@ const NavBar = () => {
         
             {/* <!-- Right elements --> */}
             <div className="d-flex align-items-center">
+              <button type='button' className="btn btn-light" onClick={logout}>Exit</button>
               {/* <!-- Icon --> */}
-              <Link className="text-reset me-3" to="/">
+              {/* <Link className="text-reset me-3" to="/">
                 <i className="fas fa-shopping-cart"></i>
-              </Link>
+              </Link> */}
         
               {/* <!-- Notifications --> */}
-              <div className="dropdown">
+              {/* <div className="dropdown">
                 <a
                   className="text-reset me-3 dropdown-toggle hidden-arrow"
                   href="/"
@@ -102,10 +97,10 @@ const NavBar = () => {
                     <Link className="dropdown-item" href="/">Something else here</Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
               {/* <!-- Avatar --> */}
               
-              <div className="dropdown">
+              {/* <div className="dropdown">
                 <a
                   className="dropdown-toggle d-flex align-items-center hidden-arrow"
                   href="/"
@@ -136,7 +131,7 @@ const NavBar = () => {
                     <Link className="dropdown-item" href="/">Logout</Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
             {/* <!-- Right elements --> */}
           </div>

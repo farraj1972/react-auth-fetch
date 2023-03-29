@@ -10,8 +10,6 @@ const ProtectedRoute = (props) => {
     const checkUserToken = () => {
         
         const userToken = localStorage.getItem('user-token')
-        
-//        console.log(userToken)
 
         if (!userToken) {
             setIsLoggedIn(false)
